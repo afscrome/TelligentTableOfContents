@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Telligent.Evolution.TableOfContents.Tests</RootNamespace>
+    <AssemblyName>Telligent.Evolution.TableOfContents.Tests</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommunityServer.Components">
+      <HintPath>..\References\CommunityServer.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="CommunityServer.RegexLibrary">
+      <HintPath>..\References\CommunityServer.RegexLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\References\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Xml">
+      <HintPath>..\References\Ninject.Extensions.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\References\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Telligent.Common, Version=1.0.50122.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>D:\Telligent\Prototyping\TableOfContents\References\Telligent.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Mocks\DummyHtmlStripper.cs" />
+    <Compile Include="Mocks\DummyLocalisationService.cs" />
+    <Compile Include="Mocks\DummySecurityService.cs" />
+    <Compile Include="Mocks\DummyTableOfContentsBuilder.cs" />
+    <Compile Include="Mocks\DummyTableOfContentsService.cs" />
+    <Compile Include="NinjectBindingTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Module\GenerateTableOfContentsTests.cs" />
+    <Compile Include="Module\GetTableOfContentsPositionTests.cs" />
+    <Compile Include="Service\EnsureHeadersHaveAnchorsTests.cs" />
+    <Compile Include="Service\GetHeadingHierarchyTests.cs" />
+    <Compile Include="Service\GetHeadingsTests.cs" />
+    <Compile Include="Service\InsertAnchorTests.cs" />
+    <Compile Include="Service\MakeAnchorNameTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TableOfContents\TableOfContents.csproj">
+      <Project>{9C99D4A4-DC09-4539-A81E-D5EA0E559E74}</Project>
+      <Name>TableOfContents</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
