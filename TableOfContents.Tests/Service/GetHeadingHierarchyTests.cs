@@ -15,6 +15,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 		public void SetUp()
 		{
 			var kernel = new StandardKernel();
+			// Hack to allow use of Formatter Class
 			kernel.Bind<ISecurityService>().To<DummySecurityService>().InSingletonScope();
 			Telligent.Common.Services.Initialize(kernel);
 
