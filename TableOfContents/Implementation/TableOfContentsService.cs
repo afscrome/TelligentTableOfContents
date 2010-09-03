@@ -90,7 +90,7 @@ namespace Telligent.Evolution.TableOfContents
 			return topLevelHeadings;
 		}
 
-		public string InsertAnchor(string heading)
+		internal string InsertAnchor(string heading)
 		{
 			var match = HeaderTagRegex.Match(heading);
 			if (!match.Success)
@@ -107,7 +107,7 @@ namespace Telligent.Evolution.TableOfContents
 			return heading.Insert(anchorPosition , anchor);
 		}
 
-		public string MakeAnchorName(string heading)
+		internal string MakeAnchorName(string heading)
 		{
 			var plainText = _htmlStripper.RemoveHtml(heading);
 			var anchorName = new StringBuilder();
