@@ -31,17 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommunityServer.Components">
-      <HintPath>..\References\CommunityServer.Components.dll</HintPath>
+    <Reference Include="CommunityServer.Components, Version=5.6.560.12296, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\CommunityServer.Components.dll</HintPath>
     </Reference>
-    <Reference Include="CommunityServer.RegexLibrary">
-      <HintPath>..\References\CommunityServer.RegexLibrary.dll</HintPath>
+    <Reference Include="CommunityServer.RegexLibrary, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\CommunityServer.RegexLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject">
-      <HintPath>..\References\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject.Extensions.Xml">
-      <HintPath>..\References\Ninject.Extensions.Xml.dll</HintPath>
+    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL" />
+    <Reference Include="Ninject.Extensions.Xml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\Ninject.Extensions.Xml.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\References\nunit.framework.dll</HintPath>
@@ -49,7 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Telligent.Common, Version=1.0.50122.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Telligent\Prototyping\TableOfContents\References\Telligent.Common.dll</HintPath>
+      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\Telligent.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

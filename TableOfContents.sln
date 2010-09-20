@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableOfContents", "TableOfC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableOfContents.Tests", "TableOfContents.Tests\TableOfContents.Tests.csproj", "{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3255A887-56EF-43D7-BE57-7FD1E4A7D47D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83E88FC9-781D-45E5-88C5-20E80FEE75A2}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.txt = Readme.txt
 		SolutionInfo.cs = SolutionInfo.cs
@@ -28,7 +28,6 @@ Global
 		{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
