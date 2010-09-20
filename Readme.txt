@@ -1,5 +1,5 @@
 ﻿============================
-	   ABOUT THE ADDON
+      ABOUT THE ADDON
 ============================
 
 The Table of Contents addon allows you to automatically generate a table of contents
@@ -7,7 +7,7 @@ for a wiki page, blog post, forum post or media file.
 
 
 ============================
-	   USING THE ADDON
+      USING THE ADDON
 ============================
 
 When authoring a long article insert the text "[toc]" (without the quotes)
@@ -20,7 +20,7 @@ rich text editor to format the headings in your article to use the "Heading 2",
 
 
 ============================
-		  INSTALLATION
+        INSTALLATION
 ============================
 
 1. Go to the "Site Theme" page in your community's Control Panel
