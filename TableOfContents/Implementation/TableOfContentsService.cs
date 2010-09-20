@@ -35,6 +35,8 @@ namespace Telligent.Evolution.TableOfContents
 				lastHeadingCloseIndex = match.Index + match.Length;
 			}
 
+			resultingHtml.Append(html.Substring(lastHeadingCloseIndex));
+
 			return resultingHtml.ToString();
 		}
 
