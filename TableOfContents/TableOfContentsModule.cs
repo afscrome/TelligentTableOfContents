@@ -3,6 +3,7 @@ using System.Text;
 using System.Xml;
 using CommunityServer.Components;
 using CommunityServer.Wikis.Components;
+using Services = Telligent.Common.Services;
 
 namespace Telligent.Evolution.TableOfContents
 {
@@ -10,10 +11,9 @@ namespace Telligent.Evolution.TableOfContents
 	{
 		private readonly ITableOfContentsService _tableOfContentsService;
 		private readonly ITableOfContentsBuilder _tableOfContentsBuilder;
-		public TableOfContentsModule()
+
+		public TableOfContentsModule() : this(Services.Get<ITableOfContentsService>(), Services.Get<ITableOfContentsBuilder>())
 		{
-			_tableOfContentsService = Telligent.Common.Services.Get<ITableOfContentsService>();
-			_tableOfContentsBuilder = Telligent.Common.Services.Get<ITableOfContentsBuilder>();
 		}
 
 		public TableOfContentsModule(ITableOfContentsService tableOfContentsService, ITableOfContentsBuilder tableOfContentsBuilder)
@@ -26,24 +26,46 @@ namespace Telligent.Evolution.TableOfContents
 		{
 			WikiEvents.BeforeAddPage += WikiEvents_BeforePageChange;
 			WikiEvents.BeforeUpdatePage += WikiEvents_BeforePageChange;
+			csa.PrePostUpdate += csa_PrePostUpdate;
 
 			WikiEvents.RenderPage += WikiEvents_RenderViewableContent;
 			WikiEvents.RenderPageRevision += WikiEvents_RenderViewableContent;
+			csa.PreRenderPost += csa_PreRenderPost;
 		}
 
-		void WikiEvents_BeforePageChange(Page page, EventArgs e)
+
+		private void EnsureHeadersHaveAnchors(IContent content)
 		{
-			// Whenever saving articles to the DB, make sure all headings have anchors
-			page.Body = _tableOfContentsService.EnsureHeadersHaveAnchors(page.Body);
+			content.Body = _tableOfContentsService.EnsureHeadersHaveAnchors(content.Body);
+			content.FormattedBody = _tableOfContentsService.EnsureHeadersHaveAnchors(content.FormattedBody);
 		}
+
+		private void csa_PrePostUpdate(IContent content, CSPostEventArgs e)
+		{
+			if (e.State != ObjectState.Create && e.State != ObjectState.Update)
+				return;
+
+			EnsureHeadersHaveAnchors(content);
+		}
+
+		private void WikiEvents_BeforePageChange(Page page, EventArgs e)
+		{
+			EnsureHeadersHaveAnchors(page);
+		}
+
 
 		void WikiEvents_RenderViewableContent(IViewableContent content, RenderEventArgs e)
 		{
 			e.RenderedContent = InsertTableOfContents(e.RenderedContent);
 		}
 
+		void csa_PreRenderPost(IContent content, CSPostEventArgs e)
+		{
+			content.FormattedBody = InsertTableOfContents(content.FormattedBody);
+		}
 
-		public string InsertTableOfContents(string html)
+
+		internal string InsertTableOfContents(string html)
 		{
 			var position = GetTableOfContentsPosition(ref html);
 
