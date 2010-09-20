@@ -23,7 +23,7 @@ namespace Telligent.Evolution.TableOfContents
 			var tableOfContents = new StringBuilder();
 
 			StartTableOfContents(tableOfContents);
-			tableOfContents.Append(tableOfContents.ToString());
+			BuildTableOfContentsLayer(tableOfContents, headings);
 			EndTableOfContents(tableOfContents);
 
 			return tableOfContents.ToString();
