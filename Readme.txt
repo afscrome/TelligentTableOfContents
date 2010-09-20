@@ -1,5 +1,10 @@
-﻿The Table of Contents addon allows you to automatically generate a table of contents
+﻿============================
+	   ABOUT THE ADDON
+============================
+
+The Table of Contents addon allows you to automatically generate a table of contents
 for a wiki page, blog post, forum post or media file.
+
 
 ============================
 	   USING THE ADDON
