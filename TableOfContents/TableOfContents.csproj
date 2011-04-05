@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,17 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommunityServer.Components, Version=5.6.560.12296, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\CommunityServer.Components.dll</HintPath>
+    <Reference Include="CommunityServer.Components">
+      <HintPath>..\TelligentEvolutionBinaries\CommunityServer.Components.dll</HintPath>
     </Reference>
-    <Reference Include="CommunityServer.Wikis, Version=5.6.560.12296, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\CommunityServer.Wikis.dll</HintPath>
+    <Reference Include="CommunityServer.Wikis">
+      <HintPath>..\TelligentEvolutionBinaries\CommunityServer.Wikis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
-    <Reference Include="Telligent.Common, Version=1.0.50122.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>D:\Telligent\Prototyping\TableOfContents\TelligentEvolutionBinaries\Telligent.Common.dll</HintPath>
+    <Reference Include="Telligent.Common">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

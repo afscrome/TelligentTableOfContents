@@ -34,7 +34,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			var headings = _tableOfContentsService.GetHeadings("<h4><a name=\"h4-anchor\"></a>Heading Contents</h4>");
 			Assert.AreEqual(1, headings.Count());
 
-			Assert.AreEqual(HeadingType.H4, headings.First().HeadingType);
+			Assert.AreEqual(HeadingType.H4, headings.First().Type);
 		}
 
 		[Test]
@@ -43,7 +43,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			var headings = _tableOfContentsService.GetHeadings("<h4><a name=\"h4-anchor\"></a>Heading Contents</h4>");
 			Assert.AreEqual(1, headings.Count());
 
-			Assert.AreEqual("Heading Contents", headings.First().Contents);
+			Assert.AreEqual("Heading Contents", headings.First().Title);
 		}
 
 		[Test]
@@ -53,8 +53,8 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			Assert.AreEqual(1, headings.Count());
 			var heading = headings.First();
 			Assert.AreEqual("Anchor-Name", heading.AnchorName);
-			Assert.AreEqual("Heading Text", heading.Contents);
-			Assert.AreEqual(HeadingType.H2, heading.HeadingType);
+			Assert.AreEqual("Heading Text", heading.Title);
+			Assert.AreEqual(HeadingType.H2, heading.Type);
 		}
 
 		[Test]
@@ -64,8 +64,8 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			Assert.AreEqual(1, headings.Count());
 			var heading = headings.First();
 			Assert.AreEqual("EndAnchor", heading.AnchorName);
-			Assert.AreEqual("Some Text", heading.Contents);
-			Assert.AreEqual(HeadingType.H3, heading.HeadingType);
+			Assert.AreEqual("Some Text", heading.Title);
+			Assert.AreEqual(HeadingType.H3, heading.Type);
 		}
 
 		[Test]
@@ -75,8 +75,8 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			Assert.AreEqual(1, headings.Count());
 			var heading = headings.First();
 			Assert.AreEqual("Anchor", heading.AnchorName);
-			Assert.AreEqual("Split Heading", heading.Contents);
-			Assert.AreEqual(HeadingType.H4, heading.HeadingType);
+			Assert.AreEqual("Split Heading", heading.Title);
+			Assert.AreEqual(HeadingType.H4, heading.Type);
 		}
 
 		[Test]
@@ -134,7 +134,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 
 			var headings = _tableOfContentsService.GetHeadings(html);
 
-			Assert.AreEqual(1, headings.Where(x => x.HeadingType == headingType).Count(), "More than one heading of type found");
+			Assert.AreEqual(1, headings.Where(x => x.Type == headingType).Count(), "More than one heading of type found");
 		}
 
 		[TestFixtureTearDown]

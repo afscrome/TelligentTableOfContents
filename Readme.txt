@@ -24,12 +24,12 @@ rich text editor to format the headings in your article to use the "Heading 2",
 ============================
 
 1. Go to the "Site Theme" page in your community's Control Panel
-		*	If on Telligent Community 5.6 / Telligent Enterprise 2.6 or higher - 
-				Go to the Files tab, and upload the TableOfContents.css file as an
-				additional CSS File in your site theme
-		*	If on Telligent Community 5.5 / Telligent Enterprise 2.5 or lower -
-				Go to the "Custom Styles (Advanced)" tab and copy the contents of
-				the TableOfContents.css file into the CSS Overrides box
+  *  If on Telligent Community 5.6 / Telligent Enterprise 2.6 or higher - 
+     Go to the Files tab, and upload the TableOfContents.css file as an
+     additional CSS File in your site theme
+  *  If on Telligent Community 5.5 / Telligent Enterprise 2.5 or lower -
+     Go to the "Custom Styles (Advanced)" tab and copy the contents of
+     the TableOfContents.css file into the CSS Overrides box
 
 2. Copy the contents of the /web/ folder to your Community
 
@@ -38,7 +38,7 @@ rich text editor to format the headings in your article to use the "Heading 2",
   BUILDING THE SOURCE CODE
 ============================
 
-1.	Copy the binaries from the /bin/ directory of your Telligent Evolution platform
-	community into the /source/TelligentEvolutionBinaries/ directory
+1.  Copy the binaries from the /bin/ directory of your Telligent Evolution platform
+    community into the /source/TelligentEvolutionBinaries/ directory
 
-2.	Open up Visual Studio and build the solution in the /source/ directory.
+2.  Open up Visual Studio and build the solution in the /source/ directory.

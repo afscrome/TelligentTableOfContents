@@ -1,5 +1,4 @@
-﻿
-namespace Telligent.Evolution.TableOfContents
+﻿namespace Telligent.Evolution.TableOfContents
 {
 	public class HtmlStripper : IHtmlStripper
 	{

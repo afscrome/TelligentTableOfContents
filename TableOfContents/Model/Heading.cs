@@ -2,8 +2,8 @@
 {
 	public struct Heading
 	{
-		public HeadingType HeadingType { get; set; }
-		public string Contents { get; set; }
+		public HeadingType Type { get; set; }
+		public string Title { get; set; }
 		public string AnchorName { get; set; }
 	}
 }

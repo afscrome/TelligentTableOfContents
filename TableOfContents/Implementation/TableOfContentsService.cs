@@ -49,8 +49,8 @@ namespace Telligent.Evolution.TableOfContents
 				if (anchor.Success)
 					yield return new Heading
 										{
-											HeadingType = (HeadingType)byte.Parse(match.Groups[1].Value),
-											Contents = _htmlStripper.RemoveHtml(contents),
+											Type = (HeadingType)byte.Parse(match.Groups[1].Value),
+											Title = _htmlStripper.RemoveHtml(contents),
 											AnchorName = anchor.Groups[1].Value
 										};
 			}
@@ -72,7 +72,7 @@ namespace Telligent.Evolution.TableOfContents
 					// first item that is a higher heading type than the current
 					// heading
 					var parentHeading = headingsStack.Peek();
-					if (parentHeading.Item.HeadingType < heading.HeadingType)
+					if (parentHeading.Item.Type < heading.Type)
 					{
 						headingsStack.Push(hiearchyItem);
 						parentHeading.Children.Add(hiearchyItem);
@@ -111,10 +111,13 @@ namespace Telligent.Evolution.TableOfContents
 
 		internal string MakeAnchorName(string heading)
 		{
+			/* To be a valid anchor name, first character *must*
+			 * be a letter.  Subsequent charaters may additionally include:
+			 * numbers, '-', '_', ':' and '.'
+			 * */
 			var plainText = _htmlStripper.RemoveHtml(heading);
 			var anchorName = new StringBuilder();
-			// Anchor name must begin with with a letter, 
-
+	
 			var enumerator = plainText.GetEnumerator();
 			enumerator.Reset();
 			// First character must be a letter
@@ -127,7 +130,6 @@ namespace Telligent.Evolution.TableOfContents
 				break;
 			}
 
-			//Subsequent charaters may additionally include numbers, -, _, : and .
 			while (enumerator.MoveNext())
 			{
 				if (char.IsLetterOrDigit(enumerator.Current))

@@ -8,12 +8,12 @@ namespace Telligent.Evolution.TableOfContents
 {
 	public abstract class TableOfContentsBuilderBase : ITableOfContentsBuilder
 	{
-		public abstract void StartTableOfContents(StringBuilder builder);
-		public abstract void EndTableOfContents(StringBuilder builder);
-		public abstract void StartHierarchyList(StringBuilder builder);
-		public abstract void EndHierarchyList(StringBuilder builder);
-		public abstract void StartHierarchyItem(StringBuilder builder);
-		public abstract void EndHierarchyItem(StringBuilder builder);
+		protected abstract void StartTableOfContents(StringBuilder builder);
+		protected abstract void EndTableOfContents(StringBuilder builder);
+		protected abstract void StartHierarchyList(StringBuilder builder);
+		protected abstract void EndHierarchyList(StringBuilder builder);
+		protected abstract void StartHierarchyItem(StringBuilder builder);
+		protected abstract void EndHierarchyItem(StringBuilder builder);
 
 		public string BuildTableOfContents(ICollection<HierarchyItem<Heading>> headings)
 		{
@@ -48,7 +48,7 @@ namespace Telligent.Evolution.TableOfContents
 			builder.Append("<a href=\"#");
 			builder.Append(heading.Item.AnchorName);
 			builder.Append("\">");
-			builder.Append(heading.Item.Contents);
+			builder.Append(heading.Item.Title);
 			builder.Append("</a>");
 			BuildTableOfContentsLayer(builder, heading.Children);
 			EndHierarchyItem(builder);

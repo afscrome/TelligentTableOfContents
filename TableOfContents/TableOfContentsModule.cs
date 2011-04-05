@@ -12,10 +12,21 @@ namespace Telligent.Evolution.TableOfContents
 		private readonly ITableOfContentsService _tableOfContentsService;
 		private readonly ITableOfContentsBuilder _tableOfContentsBuilder;
 
+		/// <summary>
+		/// Creates a new TableOfContentsModule using default implementations of
+		/// ITableOfContentsService and ITableOfContentsBuilder
+		/// </summary>
+		/// <remarks>Used when instantiating the CSModule as this requires 0 paramaters</remarks>
 		public TableOfContentsModule() : this(Services.Get<ITableOfContentsService>(), Services.Get<ITableOfContentsBuilder>())
 		{
 		}
 
+		/// <summary>
+		/// Creates a new TableOfContentsModule using the specified implementations of
+		/// ITableOfContentsService and ITableOfContentsBuilder
+		/// </summary>
+		/// <param name="tableOfContentsService">The ITableOfContentsService implementation to use</param>
+		/// <param name="tableOfContentsBuilder">The ITableOfContentsBuilder  implementation to use</param>
 		public TableOfContentsModule(ITableOfContentsService tableOfContentsService, ITableOfContentsBuilder tableOfContentsBuilder)
 		{
 			_tableOfContentsService = tableOfContentsService;
@@ -31,13 +42,6 @@ namespace Telligent.Evolution.TableOfContents
 			WikiEvents.RenderPage += WikiEvents_RenderViewableContent;
 			WikiEvents.RenderPageRevision += WikiEvents_RenderViewableContent;
 			csa.PreRenderPost += csa_PreRenderPost;
-		}
-
-
-		private void EnsureHeadersHaveAnchors(IContent content)
-		{
-			content.Body = _tableOfContentsService.EnsureHeadersHaveAnchors(content.Body);
-			content.FormattedBody = _tableOfContentsService.EnsureHeadersHaveAnchors(content.FormattedBody);
 		}
 
 		private void csa_PrePostUpdate(IContent content, CSPostEventArgs e)
@@ -65,6 +69,23 @@ namespace Telligent.Evolution.TableOfContents
 		}
 
 
+		/// <summary>
+		/// Makes sure that all headers have anchor tags in them
+		/// </summary>
+		/// <param name="content"></param>
+		private void EnsureHeadersHaveAnchors(IContent content)
+		{
+			content.Body = _tableOfContentsService.EnsureHeadersHaveAnchors(content.Body);
+			content.FormattedBody = _tableOfContentsService.EnsureHeadersHaveAnchors(content.FormattedBody);
+		}
+
+
+		/// <summary>
+		/// Takes an HTML string and inserts the Table of Contents into
+		/// the Html
+		/// </summary>
+		/// <param name="html">The html to insert the Table of Contents into</param>
+		/// <returns>An Html string containing the original html along with a table of contents</returns>
 		internal string InsertTableOfContents(string html)
 		{
 			var position = GetTableOfContentsPosition(ref html);
@@ -87,6 +108,11 @@ namespace Telligent.Evolution.TableOfContents
 			return newHtml.ToString();
 		}
 
+		/// <summary>
+		/// Calculates the index at which the Table of Contents should be inserted into a string.
+		/// </summary>
+		/// <param name="html">The html to insert the Table of Contents into</param>
+		/// <returns>The index where the table of contents should be inserted</returns>
 		public virtual int GetTableOfContentsPosition(ref string html)
 		{
 			var index = html.IndexOf("[toc]", StringComparison.InvariantCultureIgnoreCase);

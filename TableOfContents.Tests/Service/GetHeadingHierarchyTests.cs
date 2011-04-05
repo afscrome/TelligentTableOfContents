@@ -36,7 +36,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			var hierarchy = _tableOfContentsService.GetHeadingHierarchy("<h4><a name=\"h4-anchor\"></a>Heading Contents</h4>");
 			Assert.AreEqual(1, hierarchy.Count);
 
-			Assert.AreEqual(HeadingType.H4, hierarchy.First().Item.HeadingType);
+			Assert.AreEqual(HeadingType.H4, hierarchy.First().Item.Type);
 		}
 
 		[Test]
@@ -45,7 +45,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 			var hierarchy = _tableOfContentsService.GetHeadingHierarchy("<h4><a name=\"h4-anchor\"></a>Heading Contents</h4>");
 			Assert.AreEqual(1, hierarchy.Count);
 
-			Assert.AreEqual("Heading Contents", hierarchy.First().Item.Contents);
+			Assert.AreEqual("Heading Contents", hierarchy.First().Item.Title);
 		}
 
 
