@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Telligent.Evolution.TableOfContents.Tests.Module
+namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Module
 {
 	[TestFixture]
 	public class GetTableOfContentsPositionTests

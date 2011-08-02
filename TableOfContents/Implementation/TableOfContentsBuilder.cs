@@ -1,7 +1,7 @@
 ﻿
 using System.Text;
 
-namespace Telligent.Evolution.TableOfContents
+namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class TableOfContentsBuilder : TableOfContentsBuilderBase
 	{

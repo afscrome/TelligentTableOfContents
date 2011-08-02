@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Telligent.Evolution.TableOfContents
+namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class TableOfContentsService : ITableOfContentsService
 	{

@@ -8,10 +8,11 @@
     <ProjectGuid>{759F15AD-1C8B-464A-A897-BA48A2FE2DCD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Telligent.Evolution.TableOfContents.Tests</RootNamespace>
-    <AssemblyName>Telligent.Evolution.TableOfContents.Tests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>Telligent.Evolution.Extensions.TableOfContents.Tests</RootNamespace>
+    <AssemblyName>Telligent.Evolution.Extensions.TableOfContents.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,13 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommunityServer.Components, Version=5.6.560.12296, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\TelligentEvolutionBinaries\CommunityServer.Components.dll</HintPath>
-    </Reference>
-    <Reference Include="CommunityServer.RegexLibrary, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\TelligentEvolutionBinaries\CommunityServer.RegexLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL" >
+    <Reference Include="Ninject">
       <HintPath>..\TelligentEvolutionBinaries\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Xml">
@@ -48,8 +43,17 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Telligent.Common, Version=1.0.50122.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Telligent.Common">
       <HintPath>..\TelligentEvolutionBinaries\Telligent.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telligent.Evolution.Components">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Telligent.Evolution.RegexLibrary">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.RegexLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Telligent.Evolution.Wikis">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Wikis.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

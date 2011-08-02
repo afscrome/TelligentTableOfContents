@@ -1,5 +1,5 @@
 ﻿
-namespace Telligent.Evolution.TableOfContents
+namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public interface ILocalisationService
 	{

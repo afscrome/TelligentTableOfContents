@@ -2,7 +2,7 @@
 using NUnit.Framework;
 
 // Using a different namespace to avoid using the TextFixtureSetUp class
-namespace Telligent.Evolution.TableOfContents.Tests
+namespace Telligent.Evolution.Extensions.TableOfContents.Tests
 {
 	[TestFixture]
 	public class NinjectBindingTests

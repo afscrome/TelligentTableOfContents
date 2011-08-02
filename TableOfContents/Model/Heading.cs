@@ -1,4 +1,4 @@
-﻿namespace Telligent.Evolution.TableOfContents
+﻿namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public struct Heading
 	{

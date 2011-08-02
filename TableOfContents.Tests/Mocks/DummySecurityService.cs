@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommunityServer.Components;
+using Telligent.Evolution.Components;
 
-namespace Telligent.Evolution.TableOfContents.Tests.Mocks
+namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks
 {
 	public class DummySecurityService : ISecurityService
 	{

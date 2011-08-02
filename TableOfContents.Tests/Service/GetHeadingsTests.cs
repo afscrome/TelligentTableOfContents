@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using Ninject;
 using NUnit.Framework;
-using Telligent.Evolution.TableOfContents.Tests.Mocks;
+using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
 
-namespace Telligent.Evolution.TableOfContents.Tests.Service
+namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 {
 	[TestFixture]
 	public class GetHeadingsTests
@@ -14,7 +14,7 @@ namespace Telligent.Evolution.TableOfContents.Tests.Service
 		public void SetUp()
 		{
 			var kernel = new StandardKernel();
-			kernel.Bind<CommunityServer.Components.ISecurityService>().To<DummySecurityService>().InSingletonScope();
+			kernel.Bind<Telligent.Evolution.Components.ISecurityService>().To<DummySecurityService>().InSingletonScope();
 			Telligent.Common.Services.Initialize(kernel);
 
 			_tableOfContentsService = new TableOfContentsService(new HtmlStripper());

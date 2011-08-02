@@ -1,8 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
-using Telligent.Evolution.TableOfContents.Tests.Mocks;
+using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
 
-namespace Telligent.Evolution.TableOfContents.Tests.Service
+namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 {
 	[TestFixture]
 	public class InsertAnchorTests

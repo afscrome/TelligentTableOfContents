@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text;
 using System.Xml;
-using CommunityServer.Components;
-using CommunityServer.Wikis.Components;
+using Telligent.Evolution.Components;
+using Telligent.Evolution.Wikis.Components;
 using Services = Telligent.Common.Services;
 
-namespace Telligent.Evolution.TableOfContents
+namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class TableOfContentsModule : ICSModule
 	{

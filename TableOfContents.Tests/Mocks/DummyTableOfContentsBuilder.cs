@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Telligent.Evolution.TableOfContents.Tests.Mocks
+namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks
 {
 	public class DummyTableOfContentsBuilder : ITableOfContentsBuilder
 	{

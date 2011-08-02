@@ -1,5 +1,5 @@
 ﻿
-namespace Telligent.Evolution.TableOfContents
+namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class LocalisationService : ILocalisationService
 	{
@@ -7,7 +7,7 @@ namespace Telligent.Evolution.TableOfContents
 		
 		public string GetString(string resourceKey)
 		{
-			return CommunityServer.Components.ResourceManager.GetString(resourceKey, ResourceFile);
+			return Telligent.Evolution.Components.ResourceManager.GetString(resourceKey, ResourceFile);
 		}
 	}
 }

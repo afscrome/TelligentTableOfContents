@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Telligent.Evolution.TableOfContents
+namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class HierarchyItem<T>
 	{

@@ -8,10 +8,11 @@
     <ProjectGuid>{9C99D4A4-DC09-4539-A81E-D5EA0E559E74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Telligent.Evolution.TableOfContents</RootNamespace>
-    <AssemblyName>Telligent.Evolution.TableOfContents</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>Telligent.Evolution.Extensions.TableOfContents</RootNamespace>
+    <AssemblyName>Telligent.Evolution.Extensions.TableOfContents</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,17 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommunityServer.Components">
-      <HintPath>..\TelligentEvolutionBinaries\CommunityServer.Components.dll</HintPath>
-    </Reference>
-    <Reference Include="CommunityServer.Wikis">
-      <HintPath>..\TelligentEvolutionBinaries\CommunityServer.Wikis.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml" />
     <Reference Include="Telligent.Common">
       <HintPath>..\TelligentEvolutionBinaries\Telligent.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Telligent.Evolution.Components">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Components.dll</HintPath>
+    </Reference>
+    <Reference Include="Telligent.Evolution.Wikis">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Wikis.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
