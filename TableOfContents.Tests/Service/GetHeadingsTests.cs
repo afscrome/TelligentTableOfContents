@@ -13,10 +13,6 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[TestFixtureSetUp]
 		public void SetUp()
 		{
-			var kernel = new StandardKernel();
-			kernel.Bind<Telligent.Evolution.Components.ISecurityService>().To<DummySecurityService>().InSingletonScope();
-			Telligent.Common.Services.Initialize(kernel);
-
 			_tableOfContentsService = new TableOfContentsService(new HtmlStripper());
 		}
 
@@ -135,12 +131,6 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var headings = _tableOfContentsService.GetHeadings(html);
 
 			Assert.AreEqual(1, headings.Where(x => x.Type == headingType).Count(), "More than one heading of type found");
-		}
-
-		[TestFixtureTearDown]
-		public void TearDown()
-		{
-			Telligent.Common.Services.Shutdown();
 		}
 
 	}

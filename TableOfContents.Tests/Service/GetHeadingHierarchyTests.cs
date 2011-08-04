@@ -14,11 +14,6 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[TestFixtureSetUp]
 		public void SetUp()
 		{
-			var kernel = new StandardKernel();
-			// Hack to allow use of Formatter Class
-			kernel.Bind<ISecurityService>().To<DummySecurityService>().InSingletonScope();
-			Telligent.Common.Services.Initialize(kernel);
-
 			_tableOfContentsService = new TableOfContentsService(new HtmlStripper());
 		}
 
@@ -117,13 +112,6 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var hierarchy = _tableOfContentsService.GetHeadingHierarchy(html);
 			Assert.AreEqual(2, hierarchy.Count);
 		}
-
-		[TestFixtureTearDown]
-		public void TearDown()
-		{
-			Telligent.Common.Services.Shutdown();
-		}
-
 
 	}
 }
