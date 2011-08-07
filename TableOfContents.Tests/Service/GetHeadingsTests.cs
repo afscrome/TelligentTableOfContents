@@ -56,7 +56,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[Test]
 		public void Test_Finds_Heading_With_Anchor_At_End()
 		{
-			var headings = _tableOfContentsService.GetHeadings("<h3>Some Text<a name=\"EndAnchor\"></a></h2>");
+			var headings = _tableOfContentsService.GetHeadings("<h3>Some Text<a name=\"EndAnchor\"></a></h3>");
 			Assert.AreEqual(1, headings.Count());
 			var heading = headings.First();
 			Assert.AreEqual("EndAnchor", heading.AnchorName);
@@ -67,7 +67,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[Test]
 		public void Test_Finds_Heading_With_Anchor_In_Middle()
 		{
-			var headings = _tableOfContentsService.GetHeadings("<h4>Split <a name=\"Anchor\"></a>Heading</h2>");
+			var headings = _tableOfContentsService.GetHeadings("<h4>Split <a name=\"Anchor\"></a>Heading</h4>");
 			Assert.AreEqual(1, headings.Count());
 			var heading = headings.First();
 			Assert.AreEqual("Anchor", heading.AnchorName);
@@ -109,6 +109,13 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		public void Test_Finds_H6()
 		{
 			GetHeadingsFindsHeading(HeadingType.H6);
+		}
+
+		[Test]
+		public void Test_Does_Not_Find_Mismatched_Heading()
+		{
+			var headings = _tableOfContentsService.GetHeadings("<h1><a name=\"test\"></a>Here Is A Mismatched Heading</h4>");
+			Assert.AreEqual(0, headings.Count());
 		}
 
 		private void GetHeadingsFindsHeading(HeadingType headingType)
