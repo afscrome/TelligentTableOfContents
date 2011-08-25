@@ -20,6 +20,11 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			EnsureHeadersHaveAnchorTest("<h2>Heading</h2>"
 												, "<h2><a name=\"Heading\"></a>Heading</h2>");
 		}
+		[Test]
+		public void Test_Doesnt_Insert_Anchor_For_Empty_Heading()
+		{
+			EnsureHeadersHaveAnchorTest("<h2></h2>", "<h2></h2>");
+		}
 
 		[Test]
 		public void Test_Leaves_Html_Untouched_When_Heading_Has_Anchor_At_Begining_Of_Heading()
