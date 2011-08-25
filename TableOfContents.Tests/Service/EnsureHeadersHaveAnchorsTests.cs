@@ -27,6 +27,20 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		}
 
 		[Test]
+		public void Test_Doesnt_Inserts_Anchor_In_Empty_Heading_Followed_By_Proper_Heading()
+		{
+			EnsureHeadersHaveAnchorTest("<h2></h2><h2>Heading</h2>"
+												, "<h2></h2><h2><a name=\"Heading\"></a>Heading</h2>");
+		}
+		[Test]
+		public void Test_Doesnt_Inserts_Anchor_In_Empty_Heading_Preceeded_By_Proper_Heading()
+		{
+			EnsureHeadersHaveAnchorTest("<h2>Heading</h2><h2></h2>"
+												, "<h2><a name=\"Heading\"></a>Heading</h2><h2></h2>");
+		}
+
+
+		[Test]
 		public void Test_Leaves_Html_Untouched_When_Heading_Has_Anchor_At_Begining_Of_Heading()
 		{
 			const string input = "<h3><a name=\"heading\"></a>Heading</h3>";

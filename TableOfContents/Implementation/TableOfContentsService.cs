@@ -7,8 +7,8 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class TableOfContentsService : ITableOfContentsService
 	{
-		private static readonly Regex HeaderTagRegex = new Regex("<h([1-6])[^>]*>(.+?)<\\/h\\1>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-		private static readonly Regex AnchorRegex = new Regex("<a [^>]*name=\"([^\"]*)\"[^>]*>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+		private static readonly Regex HeaderTagRegex = new Regex("<h([1-6])[^>]*>(.*?)<\\/h\\1>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+		private static readonly Regex AnchorRegex = new Regex("<a (?:[^>]* )?name=\"([^\"]*)\"[^>]*>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 		private readonly IHtmlStripper _htmlStripper;
 
 		public TableOfContentsService(IHtmlStripper htmlStripper)
