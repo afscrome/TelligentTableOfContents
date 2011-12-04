@@ -31,7 +31,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[Test]
 		public void Test_Inserts_Anchor_At_Begining_Of_Heading_Tag()
 		{
-			Assert.AreEqual("<h3><a name=\"Heading\"></a>Heading</h3>", _tableOfContentsService.InsertAnchor("<h3>Heading</h3>"));
+			Assert.AreEqual("<h3><a id=\"Heading\" name=\"Heading\"></a>Heading</h3>", _tableOfContentsService.InsertAnchor("<h3>Heading</h3>"));
 		}
 
 	}

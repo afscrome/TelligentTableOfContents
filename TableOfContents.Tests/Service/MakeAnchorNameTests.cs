@@ -72,8 +72,26 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[Test]
 		public void Multiple_Whitespace_and_Punctuation_Characters_In_A_Row_Get_Replaced_By_Single_Underscore()
 		{
-			Assert.AreEqual("HarryPotter_ChamberOfSecrets", _tableOfContentsService.MakeAnchorName("HarryPotter :- ChamberOfSecrets"));
+			Assert.AreEqual("HarryPotter_ChamberOfSecrets", _tableOfContentsService.MakeAnchorName("HarryPotter : ChamberOfSecrets"));
 		}
 
+        [Test]
+        public void Multiple_Whitespace_and_Punctuation_Characters_In_A_Row_Including_A_Dash_Get_Replaced_By_Single_Dash()
+        {
+            Assert.AreEqual("HarryPotter-ChamberOfSecrets", _tableOfContentsService.MakeAnchorName("HarryPotter :- ChamberOfSecrets"));
+        }
+
+        [Test]
+        public void Accents_Normalised()
+        {
+            Assert.AreEqual("eeo", _tableOfContentsService.MakeAnchorName("éêö"));
+        }
+
+        [Test]
+        public void Name_Generated_For_Non_Roman_Words()
+        {
+            var result = _tableOfContentsService.MakeAnchorName("Введение");
+            Assert.IsNotNullOrEmpty(result);
+        }
 	}
 }

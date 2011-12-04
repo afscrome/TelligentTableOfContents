@@ -1,5 +1,4 @@
-﻿
-using System.Text;
+﻿using System.Text;
 
 namespace Telligent.Evolution.Extensions.TableOfContents
 {
@@ -15,7 +14,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 		protected override void StartTableOfContents(StringBuilder builder)
 		{
 			builder.Append("<div class=\"table-of-contents\">");
-			builder.Append("<h2 class=\"title\">");
+			builder.Append("<h2 class=\"toc-title\">");
 			builder.Append(_localisationService.GetString("TableOfContents_Title"));
 			builder.Append("</h2>");
 		}

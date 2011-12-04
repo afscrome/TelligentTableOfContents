@@ -54,6 +54,9 @@
     <Compile Include="Implementation\HtmlStripper.cs" />
     <Compile Include="Implementation\LocalisationService.cs" />
     <Compile Include="Implementation\TableOfContentsBuilder.cs" />
+    <Compile Include="Implementation\TableOfContentsService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Model\ILocalisationService.cs" />
     <Compile Include="Model\Heading.cs" />
     <Compile Include="Model\HeadingType.cs" />
@@ -63,7 +66,6 @@
     <Compile Include="Model\ITableOfContentsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TableOfContentsModule.cs" />
-    <Compile Include="Implementation\TableOfContentsService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Includes\communityserver_override.config" />

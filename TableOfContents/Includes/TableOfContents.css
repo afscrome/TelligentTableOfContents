@@ -1,5 +1,5 @@
 ﻿.table-of-contents { background-color: #eee; border: 1px solid #ccc; padding: 10px; display: inline-block; max-width: 450px; }
-.table-of-contents h2.title { border-bottom:medium none; margin-bottom:0.25em; padding-top:0;}
+.table-of-contents h2.toc-title { border-bottom:medium none; margin-bottom:0.25em; padding-top:0;}
 
 .table-of-contents .hierarchy-list { margin: 0 ;border-bottom: 1px dotted #ccc;}
 .table-of-contents .hierarchy-list .hierarchy-list { border-bottom: none;}
