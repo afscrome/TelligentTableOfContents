@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class TableOfContentsService : ITableOfContentsService
 	{
 		private static readonly Regex HeaderTagRegex = new Regex("<h([1-6])[^>]*>(.*?)<\\/h\\1>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
-		private static readonly Regex AnchorRegex = new Regex("<a (?:[^>]* )?name=\"([^\"]*)\"[^>]*>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+		private static readonly Regex AnchorRegex = new Regex("<a (?:[^>]* )?(?:name|id)=\"([^\"]*)\"[^>]*>", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+		private readonly Random _random = new Random();
 		private readonly IHtmlStripper _htmlStripper;
 
 		public TableOfContentsService(IHtmlStripper htmlStripper)
@@ -47,11 +49,11 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 				var anchor = AnchorRegex.Match(contents);
 				if (anchor.Success)
 					yield return new Heading
-										{
-											Type = (HeadingType)byte.Parse(match.Groups[1].Value),
-											Title = _htmlStripper.RemoveHtml(contents),
-											AnchorName = anchor.Groups[1].Value
-										};
+					{
+						Type = (HeadingType)byte.Parse(match.Groups[1].Value),
+						Title = _htmlStripper.RemoveHtml(contents),
+						AnchorName = anchor.Groups[1].Value
+					};
 			}
 		}
 
@@ -104,8 +106,13 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 				return heading;
 
 			var anchorPosition = match.Groups[2].Index;
-			var anchor = string.Format("<a name=\"{0}\"></a>", anchorName);
-			return heading.Insert(anchorPosition , anchor);
+			var anchor = string.Format("<a id=\"{0}\" name=\"{0}\"></a>", anchorName);
+			return heading.Insert(anchorPosition, anchor);
+		}
+
+		private bool IsRomanLetter(char c)
+		{
+			return (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')));
 		}
 
 		internal string MakeAnchorName(string heading)
@@ -114,50 +121,72 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 			 * be a letter.  Subsequent charaters may additionally include:
 			 * numbers, '-', '_', ':' and '.'
 			 * */
-			var plainText = _htmlStripper.RemoveHtml(heading);
+			var plainText = _htmlStripper.RemoveHtml(heading).Normalize(NormalizationForm.FormD);
+
+			if (String.IsNullOrWhiteSpace(plainText))
+				return String.Empty;
+
 			var anchorName = new StringBuilder();
-	
+
 			var enumerator = plainText.GetEnumerator();
 			enumerator.Reset();
 			// First character must be a letter
 			while (enumerator.MoveNext())
 			{
-				if (!char.IsLetter(enumerator.Current))
-					continue;
-
-				anchorName.Append(enumerator.Current);
-				break;
+				if (IsRomanLetter(enumerator.Current))
+				{
+					anchorName.Append(enumerator.Current);
+					break;
+				}
 			}
 
 			while (enumerator.MoveNext())
 			{
-				if (char.IsLetterOrDigit(enumerator.Current))
-				{
-					anchorName.Append(enumerator.Current);
-					continue;
-				}
-
+				char c = enumerator.Current;
 				var lastCharacter = anchorName[anchorName.Length - 1];
-				if (lastCharacter == '_' || lastCharacter == '-')
-					continue;
 
-				if (enumerator.Current == '-')
-					anchorName.Append('-');
-				else if (char.IsWhiteSpace(enumerator.Current) || char.IsPunctuation(enumerator.Current))
-						anchorName.Append('_');
+				switch (CharUnicodeInfo.GetUnicodeCategory(c))
+				{
+					case UnicodeCategory.UppercaseLetter:
+					case UnicodeCategory.LowercaseLetter:
+						if (this.IsRomanLetter(c))
+							anchorName.Append(c);
+						//TODO: Replace non roman characters with transliterated version
+						break;
+
+					case UnicodeCategory.DecimalDigitNumber:
+					case UnicodeCategory.OtherNumber:
+						double number = CharUnicodeInfo.GetNumericValue(c);
+						if (number != -1.0)
+							anchorName.Append(number);
+						break;
+
+					case UnicodeCategory.ConnectorPunctuation:
+					case UnicodeCategory.DashPunctuation:
+						if (lastCharacter == '_')
+							anchorName[anchorName.Length - 1] = '-';
+						else if (lastCharacter != '-')
+							anchorName.Append('-');
+						break;
+
+					case UnicodeCategory.OtherPunctuation:
+					case UnicodeCategory.SpaceSeparator:
+						if ((lastCharacter != '_') && (lastCharacter != '-'))
+							anchorName.Append('_');
+						break;
+				}
 			}
 
-			if (anchorName.Length == 0)
-				return String.Empty;
-
-			while (!char.IsLetterOrDigit(anchorName[anchorName.Length - 1]))
+			while (anchorName.Length != 0 && !char.IsLetterOrDigit(anchorName[anchorName.Length - 1]))
 			{
 				anchorName.Remove(anchorName.Length - 1, 1);
 			}
 
-			return anchorName.ToString();
-		}
+			return anchorName.Length == 0 ?
+				"T_" + _random.Next(1000, int.MaxValue)
+				: anchorName.ToString();
 
+		}
 	}
 }
 
