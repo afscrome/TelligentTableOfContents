@@ -32,14 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\TelligentEvolutionBinaries\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.Xml">
       <HintPath>..\TelligentEvolutionBinaries\Ninject.Extensions.Xml.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\References\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.5.10.11092\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,12 +63,7 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="Helpers.cs" />
     <Compile Include="Mocks\DummyHtmlStripper.cs" />
-    <Compile Include="Mocks\DummyLocalisationService.cs" />
-    <Compile Include="Mocks\DummySecurityService.cs" />
-    <Compile Include="Mocks\DummyTableOfContentsBuilder.cs" />
-    <Compile Include="Mocks\DummyTableOfContentsService.cs" />
     <Compile Include="NinjectBindingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Module\GenerateTableOfContentsTests.cs" />
@@ -81,6 +79,9 @@
       <Project>{9C99D4A4-DC09-4539-A81E-D5EA0E559E74}</Project>
       <Name>TableOfContents</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

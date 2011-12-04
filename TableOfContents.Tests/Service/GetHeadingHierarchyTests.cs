@@ -14,7 +14,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 		[TestFixtureSetUp]
 		public void SetUp()
 		{
-			_tableOfContentsService = new TableOfContentsService(new HtmlStripper());
+			_tableOfContentsService = new TableOfContentsService(new DummyHtmlStripper());
 		}
 
 		[Test]
