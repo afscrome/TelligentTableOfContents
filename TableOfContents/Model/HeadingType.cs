@@ -1,7 +1,8 @@
 ﻿
 namespace Telligent.Evolution.Extensions.TableOfContents
 {
-	public enum HeadingType : byte
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification="A heading must be of exactly one type.  A none option doesn't make sense")]
+	public enum HeadingType
 	{
 		H1 = 1,
 		H2 = 2,

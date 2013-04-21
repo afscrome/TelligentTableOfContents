@@ -24,7 +24,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>BasicCorrectnessRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,60 +38,44 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Telligent.Common">
-      <HintPath>..\TelligentEvolutionBinaries\Telligent.Common.dll</HintPath>
+    <Reference Include="System.Web" />
+    <Reference Include="Telligent.Evolution.Api">
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Api.dll</HintPath>
     </Reference>
     <Reference Include="Telligent.Evolution.Components">
       <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Components.dll</HintPath>
-    </Reference>
-    <Reference Include="Telligent.Evolution.Wikis">
-      <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Wikis.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="Properties\GlobalSuppressions.cs" />
     <Compile Include="Implementation\TableOfContentsBuilderBase.cs" />
     <Compile Include="Implementation\HtmlStripper.cs" />
-    <Compile Include="Implementation\LocalisationService.cs" />
     <Compile Include="Implementation\TableOfContentsBuilder.cs" />
     <Compile Include="Implementation\TableOfContentsService.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Model\ILocalisationService.cs" />
     <Compile Include="Model\Heading.cs" />
     <Compile Include="Model\HeadingType.cs" />
+    <Compile Include="Model\HierarchyCollection.cs" />
     <Compile Include="Model\HierarchyItem.cs" />
     <Compile Include="Model\IHtmlStripper.cs" />
     <Compile Include="Model\ITableOfContentsBuilder.cs" />
     <Compile Include="Model\ITableOfContentsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableOfContentsModule.cs" />
+    <Compile Include="TableOfContentsPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Includes\communityserver_override.config" />
-    <None Include="Includes\Ninject.Config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Includes\Resources.xml" />
-    <Content Include="Includes\TableOfContents.css" />
+    <EmbeddedResource Include="Resources\styles.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if exist $(SolutionDir)Deploy rd $(SolutionDir)Deploy /s /q
 
-xcopy "$(ProjectDir)Includes\TableOfContents.css" "$(SolutionDir)Deploy\" /Y /Q
-xcopy "$(SolutionDir)Readme.txt" "$(SolutionDir)Deploy\" /Y /Q
-
-xcopy "$(TargetPath)" "$(SolutionDir)Deploy\Web\bin\" /Y /Q
-xcopy "$(ProjectDir)Includes\communityserver_override.config" "$(SolutionDir)Deploy\Web\" /Y /Q
-
-mkdir "$(SolutionDir)Deploy\Web\Modules\"
-mkdir "$(SolutionDir)Deploy\Web\Languages\en-US\"
-copy "$(ProjectDir)Includes\Ninject.config" "$(SolutionDir)Deploy\Web\Modules\TableOfContents.Config" /Y
-copy "$(ProjectDir)Includes\Resources.xml" "$(SolutionDir)Deploy\Web\Languages\en-US\TableOfContents.xml" /Y</PostBuildEvent>
+xcopy "$(TargetPath)" "$(SolutionDir)Deploy\" /Y /Q
+xcopy "$(SolutionDir)readme.txt" "$(SolutionDir)Deploy\" /Y /Q</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

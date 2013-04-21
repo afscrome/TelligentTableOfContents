@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Globalization;
 
 namespace Telligent.Evolution.Extensions.TableOfContents
 {
@@ -20,6 +20,9 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 
 		public string EnsureHeadersHaveAnchors(string html)
 		{
+			if (String.IsNullOrEmpty(html))
+				return html;
+
 			var resultingHtml = new StringBuilder();
 			var lastHeadingCloseIndex = 0;
 			foreach (Match match in HeaderTagRegex.Matches(html))
@@ -50,16 +53,16 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 				if (anchor.Success)
 					yield return new Heading
 					{
-						Type = (HeadingType)byte.Parse(match.Groups[1].Value),
+						HeadingType = (HeadingType)byte.Parse(match.Groups[1].Value),
 						Title = _htmlStripper.RemoveHtml(contents),
 						AnchorName = anchor.Groups[1].Value
 					};
 			}
 		}
 
-		public ICollection<HierarchyItem<Heading>> GetHeadingHierarchy(string html)
+		public HierarchyCollection<Heading> GetHeadingHierarchy(string html)
 		{
-			var topLevelHeadings = new List<HierarchyItem<Heading>>();
+			var hierarchy = new HierarchyCollection<Heading>();
 			var headingsStack = new Stack<HierarchyItem<Heading>>();
 
 			foreach (var heading in GetHeadings(html))
@@ -73,7 +76,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 					// first item that is a higher heading type than the current
 					// heading
 					var parentHeading = headingsStack.Peek();
-					if (parentHeading.Item.Type < heading.Type)
+					if (parentHeading.Item.HeadingType < heading.HeadingType)
 					{
 						headingsStack.Push(hiearchyItem);
 						parentHeading.Children.Add(hiearchyItem);
@@ -86,11 +89,11 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 				if (!addedItem)
 				{
 					headingsStack.Push(hiearchyItem);
-					topLevelHeadings.Add(hiearchyItem);
+					hierarchy.Add(hiearchyItem);
 				}
 			}
 
-			return topLevelHeadings;
+			return hierarchy;
 		}
 
 		internal string InsertAnchor(string heading)
@@ -106,11 +109,11 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 				return heading;
 
 			var anchorPosition = match.Groups[2].Index;
-			var anchor = string.Format("<a id=\"{0}\" name=\"{0}\"></a>", anchorName);
+			var anchor = String.Concat("<a id=\"", anchorName, "\" name=\"", anchorName, "\"></a>");
 			return heading.Insert(anchorPosition, anchor);
 		}
 
-		private bool IsRomanLetter(char c)
+		private static bool IsRomanLetter(char c)
 		{
 			return (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')));
 		}
@@ -149,7 +152,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 				{
 					case UnicodeCategory.UppercaseLetter:
 					case UnicodeCategory.LowercaseLetter:
-						if (this.IsRomanLetter(c))
+						if (IsRomanLetter(c))
 							anchorName.Append(c);
 						//TODO: Replace non roman characters with transliterated version
 						break;

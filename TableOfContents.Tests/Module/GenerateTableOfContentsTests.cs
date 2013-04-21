@@ -1,30 +1,28 @@
-﻿using NUnit.Framework;
-using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
-using Moq;
-using System.Collections;
+﻿using Moq;
+using NUnit.Framework;
 using System.Collections.Generic;
+using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
 
 namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Module
 {
 	[TestFixture]
 	public class GenerateTableOfContentsTests
 	{
-		private TableOfContentsModule _tableOfContentsModule;
-
+		private TableOfContentsPlugin _tableOfContentsModule;
 		private string _tableOfContentsOutput;
 
-		private ITableOfContentsBuilder _tableOfContentsBuilder;
 		[TestFixtureSetUp]
 		public void SetUp()
 		{
 			var builderMock = new Mock<ITableOfContentsBuilder>();
 
-			builderMock.Setup(x => x.BuildTableOfContents(It.IsAny<ICollection<HierarchyItem<Heading>>>()))
-				.Returns((ICollection<HierarchyItem<Heading>> headings) => {
+			builderMock.Setup(x => x.BuildTableOfContents(It.IsAny<HierarchyCollection<Heading>>()))
+				.Returns((ICollection<HierarchyItem<Heading>> headings) =>
+				{
 					return _tableOfContentsOutput;
 				});
 
-			_tableOfContentsModule = new TableOfContentsModule(new Mock<ITableOfContentsService>().Object, builderMock.Object);	
+			_tableOfContentsModule = new TableOfContentsPlugin(new TableOfContentsService(new DummyHtmlStripper()), builderMock.Object);	
 		}
 
 		[Test]

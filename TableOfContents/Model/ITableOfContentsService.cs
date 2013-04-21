@@ -6,6 +6,6 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 	{
 		string EnsureHeadersHaveAnchors(string html);
 		IEnumerable<Heading> GetHeadings(string html);
-		ICollection<HierarchyItem<Heading>> GetHeadingHierarchy(string html);
+		HierarchyCollection<Heading> GetHeadingHierarchy(string html);
 	}
 }

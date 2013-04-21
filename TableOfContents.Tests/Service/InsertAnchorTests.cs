@@ -1,5 +1,5 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System;
 using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
 
 namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service

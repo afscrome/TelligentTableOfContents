@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-
+﻿
 namespace Telligent.Evolution.Extensions.TableOfContents
 {
 	public class HierarchyItem<T>
@@ -7,11 +6,12 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 		public HierarchyItem(T item)
 		{
 			Item = item;
-			Children = new List<HierarchyItem<T>>();
+			Children = new HierarchyCollection<Heading>();
 		}
 
 		public T Item { get; private set; }
-		public ICollection<HierarchyItem<T>> Children { get; private set; }
+		public HierarchyCollection<Heading> Children { get; private set; }
 	}
+
 
 }

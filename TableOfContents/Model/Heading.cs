@@ -1,8 +1,8 @@
 ﻿namespace Telligent.Evolution.Extensions.TableOfContents
 {
-	public struct Heading
+	public class Heading
 	{
-		public HeadingType Type { get; set; }
+		public HeadingType HeadingType { get; set; }
 		public string Title { get; set; }
 		public string AnchorName { get; set; }
 	}

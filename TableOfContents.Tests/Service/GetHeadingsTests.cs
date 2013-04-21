@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using Ninject;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System.Linq;
 using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
 
 namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
@@ -30,7 +29,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var headings = _tableOfContentsService.GetHeadings("<h4><a name=\"h4-anchor\"></a>Heading Contents</h4>");
 			Assert.AreEqual(1, headings.Count());
 
-			Assert.AreEqual(HeadingType.H4, headings.First().Type);
+			Assert.AreEqual(HeadingType.H4, headings.First().HeadingType);
 		}
 
 		[Test]
@@ -50,7 +49,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var heading = headings.First();
 			Assert.AreEqual("Anchor-Name", heading.AnchorName);
 			Assert.AreEqual("Heading Text", heading.Title);
-			Assert.AreEqual(HeadingType.H2, heading.Type);
+			Assert.AreEqual(HeadingType.H2, heading.HeadingType);
 		}
 
 		[Test]
@@ -61,7 +60,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var heading = headings.First();
 			Assert.AreEqual("EndAnchor", heading.AnchorName);
 			Assert.AreEqual("Some Text", heading.Title);
-			Assert.AreEqual(HeadingType.H3, heading.Type);
+			Assert.AreEqual(HeadingType.H3, heading.HeadingType);
 		}
 
 		[Test]
@@ -72,7 +71,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var heading = headings.First();
 			Assert.AreEqual("Anchor", heading.AnchorName);
 			Assert.AreEqual("Split Heading", heading.Title);
-			Assert.AreEqual(HeadingType.H4, heading.Type);
+			Assert.AreEqual(HeadingType.H4, heading.HeadingType);
 		}
 
 		[Test]
@@ -137,7 +136,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 
 			var headings = _tableOfContentsService.GetHeadings(html);
 
-			Assert.AreEqual(1, headings.Where(x => x.Type == headingType).Count(), "More than one heading of type found");
+			Assert.AreEqual(1, headings.Where(x => x.HeadingType == headingType).Count(), "More than one heading of type found");
 		}
 
 	}

@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using Telligent.Evolution.Components;
-using Ninject;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System.Linq;
 using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
 
 namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
@@ -31,7 +29,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
 			var hierarchy = _tableOfContentsService.GetHeadingHierarchy("<h4><a name=\"h4-anchor\"></a>Heading Contents</h4>");
 			Assert.AreEqual(1, hierarchy.Count);
 
-			Assert.AreEqual(HeadingType.H4, hierarchy.First().Item.Type);
+			Assert.AreEqual(HeadingType.H4, hierarchy.First().Item.HeadingType);
 		}
 
 		[Test]

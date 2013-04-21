@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -15,7 +14,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 		protected abstract void StartHierarchyItem(StringBuilder builder);
 		protected abstract void EndHierarchyItem(StringBuilder builder);
 
-		public string BuildTableOfContents(ICollection<HierarchyItem<Heading>> headings)
+		public string BuildTableOfContents(HierarchyCollection<Heading> headings)
 		{
 			if (headings == null || !headings.Any())
 				return String.Empty;
@@ -29,10 +28,13 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 			return tableOfContents.ToString();
 		}
 
-		public virtual void BuildTableOfContentsLayer(StringBuilder builder, ICollection<HierarchyItem<Heading>> hierarchyItems)
+		public virtual void BuildTableOfContentsLayer(StringBuilder builder, HierarchyCollection<Heading> hierarchyItems)
 		{
 			if (hierarchyItems == null || !hierarchyItems.Any())
 				return;
+
+			if (builder == null)
+				throw new ArgumentNullException("builder");
 
 			StartHierarchyList(builder);
 
@@ -44,6 +46,11 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 
 		public virtual void BuildTableOfContentsItem(StringBuilder builder, HierarchyItem<Heading> heading)
 		{
+			if (builder == null)
+				throw new ArgumentNullException("builder");
+			if (heading == null)
+				throw new ArgumentNullException("heading");
+
 			StartHierarchyItem(builder);
 			builder.Append("<a href=\"#");
 			builder.Append(heading.Item.AnchorName);
@@ -53,6 +60,7 @@ namespace Telligent.Evolution.Extensions.TableOfContents
 			BuildTableOfContentsLayer(builder, heading.Children);
 			EndHierarchyItem(builder);
 		}
+
 
 	}
 }
