@@ -8,8 +8,8 @@
     <ProjectGuid>{9C99D4A4-DC09-4539-A81E-D5EA0E559E74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Telligent.Evolution.Extensions.TableOfContents</RootNamespace>
-    <AssemblyName>Telligent.Evolution.Extensions.TableOfContents</AssemblyName>
+    <RootNamespace>Zimbra.Community.Extensions.TableOfContents</RootNamespace>
+    <AssemblyName>Zimbra.Community.Extensions.TableOfContents</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

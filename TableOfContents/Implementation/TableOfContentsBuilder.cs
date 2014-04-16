@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Telligent.Evolution.Extensions.TableOfContents
+namespace Zimbra.Community.Extensions.TableOfContents
 {
 	public class TableOfContentsBuilder : TableOfContentsBuilderBase
 	{

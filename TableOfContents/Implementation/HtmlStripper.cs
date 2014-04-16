@@ -1,5 +1,5 @@
 ﻿using Telligent.Evolution.Extensibility.Api.Version1;
-namespace Telligent.Evolution.Extensions.TableOfContents
+namespace Zimbra.Community.Extensions.TableOfContents
 {
 	public class HtmlStripper : IHtmlStripper
 	{

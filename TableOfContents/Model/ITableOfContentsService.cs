@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Telligent.Evolution.Extensions.TableOfContents
+namespace Zimbra.Community.Extensions.TableOfContents
 {
 	public interface ITableOfContentsService
 	{

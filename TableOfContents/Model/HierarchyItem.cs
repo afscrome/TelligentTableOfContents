@@ -1,5 +1,5 @@
 ﻿
-namespace Telligent.Evolution.Extensions.TableOfContents
+namespace Zimbra.Community.Extensions.TableOfContents
 {
 	public class HierarchyItem<T>
 	{

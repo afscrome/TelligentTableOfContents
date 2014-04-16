@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using System.Linq;
-using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
+using Zimbra.Community.Extensions.TableOfContents.Tests.Mocks;
 
-namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Service
+namespace Zimbra.Community.Extensions.TableOfContents.Tests.Service
 {
 	[TestFixture]
 	public class GetHeadingHierarchyTests

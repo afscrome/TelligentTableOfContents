@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks
+namespace Zimbra.Community.Extensions.TableOfContents.Tests.Mocks
 {
 	public class DummyHtmlStripper : IHtmlStripper
 	{

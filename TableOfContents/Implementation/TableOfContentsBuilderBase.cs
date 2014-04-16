@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Text;
 
-namespace Telligent.Evolution.Extensions.TableOfContents
+namespace Zimbra.Community.Extensions.TableOfContents
 {
 	public abstract class TableOfContentsBuilderBase : ITableOfContentsBuilder
 	{

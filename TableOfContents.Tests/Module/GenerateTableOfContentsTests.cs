@@ -1,9 +1,9 @@
 ﻿using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
-using Telligent.Evolution.Extensions.TableOfContents.Tests.Mocks;
+using Zimbra.Community.Extensions.TableOfContents.Tests.Mocks;
 
-namespace Telligent.Evolution.Extensions.TableOfContents.Tests.Module
+namespace Zimbra.Community.Extensions.TableOfContents.Tests.Module
 {
 	[TestFixture]
 	public class GenerateTableOfContentsTests
