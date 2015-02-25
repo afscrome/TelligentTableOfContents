@@ -19,7 +19,7 @@ rich text editor to format the headings in your article to use the "Heading 2",
 Copy the compiled plugin to the bin directory of your community website, and the Job Server.
 
 
-## BUILDING THE SOURCE CODE
+##Building Source Code
 
 1.  Copy the binaries from the /bin/ directory of your Zimbra Social community into the /source/TelligentEvolutionBinaries/ directory
 2.  Open up Visual Studio and build the solution.
