@@ -9,8 +9,8 @@ nuget:
   disable_publish_on_pr: true
 before_build:
 - ps: >-
+	nuget restore	
     Invoke-WebRequest http://telligent.com/files/downloads/TelligentCommunity-8.5.7.46581.zip -OutFile TelligentCommunity.zip
-
     &7z.exe e TelligentCommunity.Zip -oTelligentEvolutionBinaries web\bin  
 build:
   verbosity: minimal
