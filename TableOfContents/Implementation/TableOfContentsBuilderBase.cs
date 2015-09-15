@@ -17,7 +17,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		public string BuildTableOfContents(HierarchyCollection<Heading> headings)
 		{
 			if (headings == null || !headings.Any())
-				return String.Empty;
+				return string.Empty;
 
 			var tableOfContents = new StringBuilder();
 

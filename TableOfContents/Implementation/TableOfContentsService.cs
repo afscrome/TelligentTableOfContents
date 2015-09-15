@@ -20,7 +20,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 
 		public string EnsureHeadersHaveAnchors(string html)
 		{
-			if (String.IsNullOrEmpty(html))
+			if (string.IsNullOrEmpty(html))
 				return html;
 
 			var resultingHtml = new StringBuilder();
@@ -105,11 +105,11 @@ namespace Zimbra.Community.Extensions.TableOfContents
 			// If we can't generate an anchor name, don't insert the anchor
 			var headingContents = match.Groups[2].Value;
 			var anchorName = MakeAnchorName(headingContents);
-			if (String.IsNullOrEmpty(anchorName))
+			if (string.IsNullOrEmpty(anchorName))
 				return heading;
 
 			var anchorPosition = match.Groups[2].Index;
-			var anchor = String.Concat("<a id=\"", anchorName, "\" name=\"", anchorName, "\"></a>");
+			var anchor = string.Concat("<a id=\"", anchorName, "\" name=\"", anchorName, "\"></a>");
 			return heading.Insert(anchorPosition, anchor);
 		}
 
@@ -124,8 +124,8 @@ namespace Zimbra.Community.Extensions.TableOfContents
 			 * */
 			var plainText = _htmlStripper.RemoveHtml(heading).Normalize(NormalizationForm.FormD);
 
-			if (String.IsNullOrWhiteSpace(plainText))
-				return String.Empty;
+			if (string.IsNullOrWhiteSpace(plainText))
+				return string.Empty;
 
 			var anchorName = new StringBuilder();
 

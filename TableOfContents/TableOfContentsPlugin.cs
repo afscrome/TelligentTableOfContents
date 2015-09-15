@@ -110,7 +110,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 
 			var tableOfContents = _tableOfContentsBuilder.BuildTableOfContents(hierarchy);
 
-			if (String.IsNullOrEmpty(tableOfContents))
+			if (string.IsNullOrEmpty(tableOfContents))
 				return html;
 
 			var newHtml = new StringBuilder();
