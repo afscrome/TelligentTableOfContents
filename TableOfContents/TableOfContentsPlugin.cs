@@ -27,12 +27,12 @@ namespace Zimbra.Community.Extensions.TableOfContents
 			_tableOfContentsBuilder = tableOfContentsBuilder;
 		}
 
-		public string Description { get { return "Toc"; } }
-		public string Name { get { return "Table of Contents"; } }
-		public string Title { get { return _translations.GetLanguageResourceValue("title"); } }
-		public Version Version { get { return Assembly.GetExecutingAssembly().GetName().Version; } }
+        public string Description => "Toc";
+        public string Name => "Table of Contents";
+        public string Title => _translations.GetLanguageResourceValue("title");
+        public Version Version => Assembly.GetExecutingAssembly().GetName().Version;
 
-		public void Initialize()
+        public void Initialize()
 		{
 			PublicApi.Html.Events.Render += Events_Render;
 			PublicApi.Html.Events.BeforeCreate += Html_Modified;

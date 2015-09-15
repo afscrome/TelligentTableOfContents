@@ -8,8 +8,6 @@ namespace Zimbra.Community.Extensions.TableOfContents.Tests.Mocks
 		private static readonly Regex HtmlTagRegex = new Regex("<[^>]*>", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
 		public string RemoveHtml(string html)
-		{
-			return HtmlTagRegex.Replace(html, String.Empty);
-		}
+            => HtmlTagRegex.Replace(html, String.Empty);
 	}
 }

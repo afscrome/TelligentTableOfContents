@@ -3,9 +3,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 {
 	public class HtmlStripper : IHtmlStripper
 	{
-		public string RemoveHtml(string html)
-		{
-			return PublicApi.Language.RemoveHtml(html);
-		}
-	}
+        public string RemoveHtml(string html)
+            => PublicApi.Language.RemoveHtml(html);
+    }
 }

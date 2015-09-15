@@ -100,7 +100,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		{
 			var match = HeaderTagRegex.Match(heading);
 			if (!match.Success)
-				throw new ArgumentOutOfRangeException("heading", heading, "Heading is not valid heading tag");
+				throw new ArgumentOutOfRangeException(nameof(heading), heading, "Heading is not valid heading tag");
 
 			// If we can't generate an anchor name, don't insert the anchor
 			var headingContents = match.Groups[2].Value;
@@ -113,10 +113,8 @@ namespace Zimbra.Community.Extensions.TableOfContents
 			return heading.Insert(anchorPosition, anchor);
 		}
 
-		private static bool IsRomanLetter(char c)
-		{
-			return (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')));
-		}
+        private static bool IsRomanLetter(char c)
+            => (((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')));
 
 		internal string MakeAnchorName(string heading)
 		{

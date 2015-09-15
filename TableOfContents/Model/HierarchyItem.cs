@@ -9,9 +9,9 @@ namespace Zimbra.Community.Extensions.TableOfContents
 			Children = new HierarchyCollection<Heading>();
 		}
 
-		public T Item { get; private set; }
-		public HierarchyCollection<Heading> Children { get; private set; }
-	}
+		public T Item { get; }
+        public HierarchyCollection<Heading> Children { get; }
+    }
 
 
 }

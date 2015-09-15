@@ -34,7 +34,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 				return;
 
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 
 			StartHierarchyList(builder);
 
@@ -47,9 +47,9 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		public virtual void BuildTableOfContentsItem(StringBuilder builder, HierarchyItem<Heading> heading)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			if (heading == null)
-				throw new ArgumentNullException("heading");
+				throw new ArgumentNullException(nameof(heading));
 
 			StartHierarchyItem(builder);
 			builder.Append("<a href=\"#");

@@ -14,7 +14,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		protected override void StartTableOfContents(StringBuilder builder)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			builder.Append("<div class=\"table-of-contents\">");
 			builder.Append("<h2 class=\"toc-title\">");
 			builder.Append(_tableOfContentsPlugin.Title);
@@ -24,14 +24,14 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		protected override void EndTableOfContents(StringBuilder builder)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			builder.Append("</div>");
 		}
 
 		protected override void StartHierarchyList(StringBuilder builder)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			builder.Append("<div class=\"hierarchy-list-header\"> </div>");
 			builder.Append("<ul class=\"hierarchy-list\">");
 		}
@@ -39,7 +39,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		protected override void EndHierarchyList(StringBuilder builder)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			builder.Append("</ul>");
 			builder.Append("<div class=\"hierarchy-list-footer\"> </div>");
 		}
@@ -47,14 +47,14 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		protected override void StartHierarchyItem(StringBuilder builder)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			builder.Append("<li class=\"hierarchy-item\">");
 		}
 
 		protected  override void EndHierarchyItem(StringBuilder builder)
 		{
 			if (builder == null)
-				throw new ArgumentNullException("builder");
+				throw new ArgumentNullException(nameof(builder));
 			builder.Append("</li>");
 		}
 	}
