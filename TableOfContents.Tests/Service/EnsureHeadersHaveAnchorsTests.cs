@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
-using Zimbra.Community.Extensions.TableOfContents.Tests.Mocks;
+using AlexCrome.Telligent.TableOfContents.Tests.Mocks;
 
-namespace Zimbra.Community.Extensions.TableOfContents.Tests.Service
+namespace AlexCrome.Telligent.TableOfContents.Tests.Service
 {
 	[TestFixture]
 	public class EnsureHeadersHaveAnchorsTests

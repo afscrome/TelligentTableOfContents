@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	public interface ITableOfContentsService
 	{

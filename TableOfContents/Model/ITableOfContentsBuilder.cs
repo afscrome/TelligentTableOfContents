@@ -1,5 +1,5 @@
 ﻿
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	public interface ITableOfContentsBuilder
 	{

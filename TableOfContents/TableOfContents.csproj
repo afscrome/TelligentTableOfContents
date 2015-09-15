@@ -8,8 +8,8 @@
     <ProjectGuid>{9C99D4A4-DC09-4539-A81E-D5EA0E559E74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Zimbra.Community.Extensions.TableOfContents</RootNamespace>
-    <AssemblyName>Zimbra.Community.Extensions.TableOfContents</AssemblyName>
+    <RootNamespace>AlexCrome.Telligent.TableOfContents</RootNamespace>
+    <AssemblyName>AlexCrome.Telligent.TableOfContents</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -25,7 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">

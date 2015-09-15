@@ -1,5 +1,5 @@
 ﻿using Telligent.Evolution.Extensibility.Api.Version1;
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	public class HtmlStripper : IHtmlStripper
 	{

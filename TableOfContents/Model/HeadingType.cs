@@ -1,5 +1,5 @@
 ﻿
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification="A heading must be of exactly one type.  A none option doesn't make sense")]
 	public enum HeadingType

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	public class HierarchyCollection<T> : Collection<HierarchyItem<T>>
 	{

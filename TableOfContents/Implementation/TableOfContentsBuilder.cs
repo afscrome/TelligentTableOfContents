@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	public class TableOfContentsBuilder : TableOfContentsBuilderBase
 	{

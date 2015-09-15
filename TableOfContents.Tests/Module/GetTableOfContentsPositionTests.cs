@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace Zimbra.Community.Extensions.TableOfContents.Tests.Module
+namespace AlexCrome.Telligent.TableOfContents.Tests.Module
 {
 	[TestFixture]
 	public class GetTableOfContentsPositionTests

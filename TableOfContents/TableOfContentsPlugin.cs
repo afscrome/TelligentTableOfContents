@@ -6,7 +6,7 @@ using Telligent.Evolution.Extensibility.Api.Version1;
 using Telligent.Evolution.Extensibility.UI.Version1;
 using Telligent.Evolution.Extensibility.Version1;
 
-namespace Zimbra.Community.Extensions.TableOfContents
+namespace AlexCrome.Telligent.TableOfContents
 {
 	public class TableOfContentsPlugin : ISingletonPlugin, ITranslatablePlugin, IInstallablePlugin
 	{
@@ -147,7 +147,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		{
 			if (lastInstalledVersion == _emptyVersion)
 			{
-				var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Zimbra.Community.Extensions.TableOfContents.Resources.styles.css");
+				var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("AlexCrome.Telligent.TableOfContents.Resources.styles.css");
 				foreach(var theme in Themes.List(ThemeTypes.Site)){
 					ThemeFiles.AddUpdateFactoryDefault(theme, "cssFiles", "TableofContents.css", stream, (int)stream.Length);
 				}

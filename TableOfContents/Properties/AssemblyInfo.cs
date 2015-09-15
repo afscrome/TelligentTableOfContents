@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly: AssemblyTitle("Zimbra.Community.Extensions.TableOfContents")]
+[assembly: AssemblyTitle("AlexCrome.Telligent.TableOfContents")]
 [assembly: AssemblyDescription("")]
 #if DEBUG
-[assembly: InternalsVisibleTo("Zimbra.Community.Extensions.TableOfContents.Tests")]
+[assembly: InternalsVisibleTo("AlexCrome.Telligent.TableOfContents.Tests")]
 #endif
