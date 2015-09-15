@@ -17,6 +17,8 @@ before_build:
     &7z.exe e TelligentCommunity.Zip -oTelligentEvolutionBinaries web\bin
 
 build:
+  publish_nuget: true
+  publish_nuget_symbols: true
   verbosity: minimal
 artifacts:
 - path: TableOfContents\bin\Release\AlexCrome.Telligent.TableOfContents.dll
