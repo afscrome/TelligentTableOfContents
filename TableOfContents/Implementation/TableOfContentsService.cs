@@ -119,7 +119,7 @@ namespace Zimbra.Community.Extensions.TableOfContents
 		internal string MakeAnchorName(string heading)
 		{
 			/* To be a valid anchor name, first character *must*
-			 * be a letter.  Subsequent charaters may additionally include:
+			 * be a letter.  Subsequent characters may additionally include:
 			 * numbers, '-', '_', ':' and '.'
 			 * */
 			var plainText = _htmlStripper.RemoveHtml(heading).Normalize(NormalizationForm.FormD);
