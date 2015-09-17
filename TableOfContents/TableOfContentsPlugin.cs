@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Telligent.DynamicConfiguration.Components;
 using Telligent.Evolution.Extensibility.Api.Version1;
+using Telligent.Evolution.Extensibility.EmbeddableContent.Version1;
 using Telligent.Evolution.Extensibility.UI.Version1;
 using Telligent.Evolution.Extensibility.Version1;
 
 namespace AlexCrome.Telligent.TableOfContents
 {
-	public class TableOfContentsPlugin : ISingletonPlugin, ITranslatablePlugin, IInstallablePlugin
-	{
+	public class TableOfContentsPlugin : ISingletonPlugin, ITranslatablePlugin, IInstallablePlugin, IEmbeddableContentFragmentType
+    {
 		private static readonly Version _emptyVersion = new Version(0, 0, 0, 0);
+        private static readonly Guid _fragmentId = new Guid("ef1cc625-6d0f-40c2-a7e3-3259a72b9ae6");
 		private readonly ITableOfContentsService _tableOfContentsService;
 		private readonly ITableOfContentsBuilder _tableOfContentsBuilder;
 		private ITranslatablePluginController _translations;
@@ -31,6 +35,12 @@ namespace AlexCrome.Telligent.TableOfContents
         public string Name => "Table of Contents";
         public string Title => _translations.GetLanguageResourceValue("title");
         public Version Version => Assembly.GetExecutingAssembly().GetName().Version;
+        public string ContentFragmentName => "Table of Contents"; //Translatable
+        public string ContentFragmentDescription => "TODO"; //Translatable
+        public Guid EmbeddedContentFragmentTypeId => _fragmentId;
+        public PropertyGroup[] EmbedConfiguration => new PropertyGroup[0];
+        public string PreviewImageUrl => "about:blank";
+
 
         public void Initialize()
 		{
@@ -90,13 +100,13 @@ namespace AlexCrome.Telligent.TableOfContents
 		}
 
 
-		/// <summary>
-		/// Takes an HTML string and inserts the Table of Contents into
-		/// the Html
-		/// </summary>
-		/// <param name="html">The html to insert the Table of Contents into</param>
-		/// <returns>An Html string containing the original html along with a table of contents</returns>
-		internal string InsertTableOfContents(string html)
+        /// <summary>
+        /// Takes an HTML string and inserts the Table of Contents into
+        /// the Html
+        /// </summary>
+        /// <param name="html">The html to insert the Table of Contents into</param>
+        /// <returns>An Html string containing the original html along with a table of contents</returns>
+        internal string InsertTableOfContents(string html)
 		{
 			var position = GetTableOfContentsPosition(ref html);
 
@@ -158,5 +168,19 @@ namespace AlexCrome.Telligent.TableOfContents
 		{
 		}
 
-	}
+        public string Render(IEmbeddableContentFragment embeddedFragment, string target)
+        {
+            return "<div style=\"background-color: red; height: 100px; width: 100px;\">TODO: TABLE OF CONTENTS</div>";
+        }
+
+        public bool CanEmbed(Guid contentTypeId, int userId) => true;
+
+        public EmbeddableContentFragmentValidationState Validate(IEmbeddableContentFragment embeddedFragment)
+            => new EmbeddableContentFragmentValidationState(true);
+
+        public void AddUpdateContentFragments(Guid contentId, Guid contentTypeId, IEnumerable<IEmbeddableContentFragment> embeddedFragments)
+        {
+            var s = "todo";
+        }
+    }
 }
