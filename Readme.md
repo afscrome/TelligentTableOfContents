@@ -3,6 +3,12 @@
 The Table of Contents plugin  allows you to automatically generate a table of contents
 for a wiki page, blog post, forum post or media file.
 
+#Build Status
+
+master | develop
+-------|--------
+[![Build status](https://ci.appveyor.com/api/projects/status/pjsxaljdxnofny2k/branch/master?svg=true)](https://ci.appveyor.com/project/afscrome/tableofcontents/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/pjsxaljdxnofny2k/branch/develop?svg=true)](https://ci.appveyor.com/project/afscrome/tableofcontents/branch/develop)
+
 ##Using the plugin
 
 When authoring a long article insert the text "[toc]" (without the quotes)
@@ -16,7 +22,7 @@ rich text editor to format the headings in your article to use the "Heading 2",
 
 ##Installation
 
-Copy the compiled plugin to the bin directory of your community website, and the Job Server.
+Download the compiled dll from https://ci.appveyor.com/project/afscrome/tableofcontents/build/0.0.17/artifacts , and copy it into  the bin directory of your community website, and the Job Server.
 
 
 ##Building Source Code
