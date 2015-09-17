@@ -58,7 +58,7 @@
     <Reference Include="System.Web" />
     <Reference Include="Telligent.DynamicConfiguration, Version=1.0.258.42266, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ZimbraAzure\References\Telligent.DynamicConfiguration.dll</HintPath>
+      <HintPath>..\TelligentEvolutionBinaries\Telligent.DynamicConfiguration.dll</HintPath>
     </Reference>
     <Reference Include="Telligent.Evolution.Api">
       <HintPath>..\TelligentEvolutionBinaries\Telligent.Evolution.Api.dll</HintPath>
