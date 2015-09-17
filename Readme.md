@@ -3,8 +3,6 @@
 The Table of Contents plugin  allows you to automatically generate a table of contents
 for a wiki page, blog post, forum post or media file.
 
-#Build Status
-
 master | develop
 -------|--------
 [![Build status](https://ci.appveyor.com/api/projects/status/pjsxaljdxnofny2k/branch/master?svg=true)](https://ci.appveyor.com/project/afscrome/tableofcontents/branch/master) | [![Build status](https://ci.appveyor.com/api/projects/status/pjsxaljdxnofny2k/branch/develop?svg=true)](https://ci.appveyor.com/project/afscrome/tableofcontents/branch/develop)
